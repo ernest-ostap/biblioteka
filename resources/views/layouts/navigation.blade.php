@@ -18,8 +18,17 @@
                     <x-nav-link :href="route('authors.index')" :active="request()->routeIs('authors.*')">
                         {{ __('Autorzy') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('books.index')" :active="request()->routeIs('books.*')">
+                        {{ __('Książki') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                         {{ __('Kategorie') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
+                        {{ __('Klienci') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.*')">
+                        {{ __('Rezerwacje') }}
                     </x-nav-link>
                 </div>
             </div>

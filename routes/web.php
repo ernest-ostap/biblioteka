@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,5 +21,8 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('authors', AuthorController::class)->middleware('auth');
 Route::resource('categories', \App\Http\Controllers\CategoryController::class)->middleware('auth');
+Route::resource('books', BookController::class)->middleware('auth');
+Route::resource('clients', \App\Http\Controllers\ClientController::class);
+Route::resource('reservations', App\Http\Controllers\ReservationController::class);
 
 require __DIR__.'/auth.php';
