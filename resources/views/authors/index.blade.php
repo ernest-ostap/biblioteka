@@ -76,7 +76,7 @@
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <div class="flex space-">
+                                        <div class="flex space-x-2">
                                             <a href="{{ route('authors.show', $author) }}" 
                                                class="text-white pr-2 hover:text-blue-900 mx-2 dark:text-blue-400 dark:hover:text-blue-300 transition duration-150">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
