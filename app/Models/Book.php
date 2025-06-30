@@ -15,6 +15,10 @@ class Book extends Model
         'is_available',
     ];
 
+    protected $casts = [
+        'release_date' => 'date',
+    ];
+
     public function author()
     {
         return $this->belongsTo(Author::class);

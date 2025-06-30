@@ -101,30 +101,32 @@
                             </div>
                         </a>
 
-                        <div class="flex items-center p-4 bg-gray-400 dark:bg-gray-700 rounded-lg opacity-50">
+                        <a href="{{ route('books.create') }}" 
+                           class="flex items-center p-4 bg-purple-600 dark:bg-purple-700 rounded-lg hover:bg-purple-700 dark:hover:bg-purple-800 transition duration-150">
                             <svg class="h-6 w-6 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                             </svg>
                             <div>
                                 <p class="text-sm font-medium text-white">Dodaj książkę</p>
-                                <p class="text-xs text-white">Wkrótce</p>
+                                <p class="text-xs text-purple-200">Nowa książka</p>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="flex items-center p-4 bg-gray-400 dark:bg-gray-700 rounded-lg opacity-50">
+                        <a href="{{ route('clients.index') }}" 
+                           class="flex items-center p-4 bg-yellow-600 dark:bg-yellow-700 rounded-lg hover:bg-yellow-700 dark:hover:bg-yellow-800 transition duration-150">
                             <svg class="h-6 w-6 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 0v4m0-4h4"></path>
                             </svg>
                             <div>
-                                <p class="text-sm font-medium text-white">Kategorie</p>
-                                <p class="text-xs text-white">Wkrótce</p>
+                                <p class="text-sm font-medium text-white">Klienci</p>
+                                <p class="text-xs text-yellow-200">Lista klientów</p>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Ostatnie aktywności -->
+            <!-- Ostatni autorzy -->
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6">
                     <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Ostatnio dodani autorzy</h3>

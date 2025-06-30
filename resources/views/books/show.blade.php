@@ -58,7 +58,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="mb-6">
+                        <div class="mb-6 text-white">
                             <span class="font-semibold">Autor:</span> {{ $book->author->first_name }} {{ $book->author->last_name }}<br>
                             <span class="font-semibold">Kategoria:</span> {{ $book->category->name }}<br>
                             <span class="font-semibold">Data wydania:</span> {{ $book->release_date ? $book->release_date->format('d.m.Y') : 'Brak' }}<br>
