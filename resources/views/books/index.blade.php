@@ -16,6 +16,12 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <!-- szukajka -->
+            <form method="GET" action="{{ route('books.index') }}" class="mb-6 flex items-center gap-2">
+                <input type="text" name="search" value="{{ request('search') }}" placeholder="Szukaj po tytule..." class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200">Szukaj</button>
+            </form>
+
             @if(session('success'))
                 <div class="mb-6 bg-green-100 border border-green-400 text-white px-4 py-3 rounded-lg">
                     <div class="flex items-center">

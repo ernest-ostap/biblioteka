@@ -9,9 +9,14 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::with(['author', 'category'])->get();
+        $query = Book::with(['author', 'category']);
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where('title', 'like', "%{$search}%");
+        }
+        $books = $query->get();
         return view('books.index', compact('books'));
     }
 
