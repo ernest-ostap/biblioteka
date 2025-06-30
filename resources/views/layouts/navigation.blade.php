@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('authors.index')" :active="request()->routeIs('authors.*')">
                         {{ __('Autorzy') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
+                        {{ __('Kategorie') }}
+                    </x-nav-link>
                 </div>
             </div>
 

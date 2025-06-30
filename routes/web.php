@@ -19,6 +19,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('authors', AuthorController::class)->middleware('auth');
-
+Route::resource('categories', \App\Http\Controllers\CategoryController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

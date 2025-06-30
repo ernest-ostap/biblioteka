@@ -2,14 +2,14 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Zarządzanie autorami') }}
+                {{ __('Zarządzanie kategoriami') }}
             </h2>
-            <a href="{{ route('authors.create') }}" 
+            <a href="{{ route('categories.create') }}" 
                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 flex items-center">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                 </svg>
-                Dodaj autora
+                Dodaj kategorię
             </a>
         </div>
     </x-slot>
@@ -28,7 +28,7 @@
             @endif
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                @if($authors->count())
+                @if($categories->count())
                     <div class="overflow-x-auto w-full">
                         <table class="w-full min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                             <thead class="bg-gray-50 dark:bg-gray-700">
@@ -37,13 +37,7 @@
                                         ID
                                     </th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                                        Imię
-                                    </th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                                        Nazwisko
-                                    </th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                                        Biografia
+                                        Nazwa
                                     </th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                                         Akcje
@@ -51,45 +45,35 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                                @foreach($authors as $author)
+                                @foreach($categories as $category)
                                 <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition duration-150">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
-                                        #{{ $author->id }}
+                                        #{{ $category->id }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                                        {{ $author->first_name }}
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100 font-medium">
-                                        {{ $author->last_name }}
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 max-w-xs truncate">
-                                        @if($author->bio)
-                                            {{ Str::limit($author->bio, 50) }}
-                                        @else
-                                            <span class="text-gray-400 dark:text-gray-500">Brak biografii</span>
-                                        @endif
+                                        {{ $category->name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <div class="flex space-x-2">
-                                            <a href="{{ route('authors.show', $author) }}" 
-                                               class="text-blue-600 pr-2 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 transition duration-150">
+                                            <a href="{{ route('categories.show', $category) }}" 
+                                               class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 transition duration-150">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                                 </svg>
                                             </a>
-                                            <a href="{{ route('authors.edit', $author) }}" 
+                                            <a href="{{ route('categories.edit', $category) }}" 
                                                class="text-yellow-600 hover:text-yellow-900 dark:text-yellow-400 dark:hover:text-yellow-300 transition duration-150">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                                 </svg>
                                             </a>
-                                            <form action="{{ route('authors.destroy', $author) }}" method="POST" class="inline">
+                                            <form action="{{ route('categories.destroy', $category) }}" method="POST" class="inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" 
                                                         class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 transition duration-150"
-                                                        onclick="return confirm('Czy na pewno chcesz usunąć tego autora?')">
+                                                        onclick="return confirm('Czy na pewno chcesz usunąć tę kategorię?')">
                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                                     </svg>
@@ -103,19 +87,17 @@
                         </table>
                     </div>
                 @else
-                    <div class="text-center py-12">
-                        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                        <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">Brak autorów</h3>
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Rozpocznij dodając pierwszego autora.</p>
+                    <div class="text-center px-2 py-2">
+                        
+                        <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">Brak kategorii</h3>
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Rozpocznij dodając pierwszą kategorię.</p>
                         <div class="mt-6">
-                            <a href="{{ route('authors.create') }}" 
+                            <a href="{{ route('categories.create') }}" 
                                class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
-                                Dodaj pierwszego autora
+                                Dodaj pierwszą kategorię
                             </a>
                         </div>
                     </div>
@@ -123,4 +105,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-layout> 
