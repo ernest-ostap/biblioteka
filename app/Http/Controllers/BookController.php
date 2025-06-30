@@ -31,8 +31,8 @@ class BookController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'release_date' => 'nullable|date',
+            'description' => 'nullable|string|min:20',
+            'release_date' => 'nullable|date|before_or_equal:today',
             'author_id' => 'required|exists:authors,id',
             'category_id' => 'required|exists:categories,id',
             'is_available' => 'boolean',
@@ -58,8 +58,8 @@ class BookController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'release_date' => 'nullable|date',
+            'description' => 'nullable|string|min:20',
+            'release_date' => 'nullable|date|before_or_equal:today',
             'author_id' => 'required|exists:authors,id',
             'category_id' => 'required|exists:categories,id',
             'is_available' => 'boolean',
